@@ -2,8 +2,10 @@ FROM node:18
 
 WORKDIR /app
 
-COPY /app .
+COPY /app/package.json /app
 
-RUN yarn
+COPY . /app
 
-CMD ["yarn", "dev"]
+USER node
+
+CMD ["/bin/bash", "-c", "yarn install && yarn dev"]
