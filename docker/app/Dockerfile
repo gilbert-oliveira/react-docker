@@ -1,8 +1,8 @@
-FROM node:18 
+FROM node:latest
 
 WORKDIR /app
 
-COPY /app/package.json /app
+COPY /package.json /app
 
 COPY . /app
 

@@ -1,24 +1,13 @@
 version: '3.4'
 
-networks:
-  react:
-
 services:
-  react-service:
+  app:
     build: 
       context: .
-      dockerfile: ./docker/react/Dockerfile
-    #image: node:18
+      dockerfile: ./docker/app/Dockerfile
     ports:
       - 3000:3000
-    container_name: react
+    container_name: app
     stdin_open: true
     volumes:
-      - ./app:/app
-    #  - /app/node_modules
-    networks:
-      - react
-    #command: 
-    #  - sh
-    #  - -c
-    #  - "cd /app && yarn install && yarn dev"
+      - .:/app
